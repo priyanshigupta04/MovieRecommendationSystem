@@ -31,6 +31,20 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
+import gdown
+
+
+# Google Drive file IDs (replace with your actual IDs)
+movies_file_id = "1EzY7XwaB23egCxG0sGKPG0BWg5hHpBeI"
+similarity_file_id = "1sBbGh2LbIhaUCWNDdIMgcE7Jo-IQ7apL"
+
+# Download the files
+gdown.download(f"https://drive.google.com/uc?id={movies_file_id}", "movies.pkl", quiet=False)
+gdown.download(f"https://drive.google.com/uc?id={similarity_file_id}", "similarity.pkl", quiet=False)
+
+
+
 @st.cache_data
 def fetch_poster(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US"
